@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarship</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <style>
+    .button {
+      background-color: #384b39;
+      border: none;
+      color: white;
+      padding: 9px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px
+    }
+
+    .buttonSubmit {
+      background-color: #085e0c;
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px
+    }
+
+    h1 {
+      text-align: center;
+      font-family: cursive;
+      font-size: 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .title_box {
+      margin: auto;
+      border: 1px solid #0c2d74;
+      border-radius: 1ch;
+
+      flex: 1;
+    }
+
+    .title_box #title {
+      position: relative;
+      top: -0.9em;
+      margin-left: 1em;
+      display: inline;
+      background-color: white;
+      font-size: large;
+      font-family: 'Franklin Gothic Medium';
+    }
+
+    .inBox {
+      background-color: white;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .flex-container {
+      display: flex;
+    }
+
+    .flex-child {
+      flex: 1;
+    }
+
+    .flex-child:first-child {
+      margin-right: 50px;
+      margin-left: 10px;
+    }
+
+    .center-this {
+      display: grid;
+      place-items: left;
+      align-content: left;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="computer-icon.png" sizes="16x16">
+  <img src="computer-icon.png" alt="logo">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body id='admin'>
+  <form>
+    <a href="http://127.0.0.1:5500/interface/index.html"><input type="button" class="form-control input-lg"
+        value="Go back!" style="width: 100px;" onclick="history.back()"></a>
+  </form>
+  <h1>Scholarships Smart Contract</h1>
+  <p>
+  <div id="mm-detected"></div>
+  </p>
+  <!-- Connect to MetaMask Wallet -->
+  <p>
+    <button id="mm-connect" class="button">Connect to MetaMask</button>
+  </p>
+  <!-- Display current address -->
+
+  <div id="mm-current-account"></div>
+  <hr>
+  <!-- Provide an input to change the contract text value -->
+
+  <div class="flex-container" style="width: 1500px;">
+    <div class="flex-child magenta" style="width: 500px;">
+      <div class="title_box">
+        <div id="title">Add scholarship</div>
+        <form id="f1" role="form" class="inBox">
+          <input id='scholarshipName-inputText' type="text" class="form-control input-lg" name="Sid"
+            placeholder="Scholarship name"></input><br />
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input id='scholarshipnumgranttxt' type="number" class="form-control input-lg" name="address"
+                placeholder="Number of grants"></input>
+              <span class="input-group-btn">
+                <input id='addScholarship-btn' type="button" value="Submit" class="btn btn-primary btn-lg"></input>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br />
+      <div class="title_box">
+        <div id="title">Create a whitelist</div>
+        <form id="f1" role="form" class="inBox">
+          <input id='scholarshipId-inputText-whitelist' type="number" class="form-control input-lg" name="Sid"
+            placeholder="Scholarship Id"></input>
+          <br />
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input id='studentaddress-inputText-whitelist' class="form-control input-lg" name="address"
+                placeholder="Student address"></input>
+              <span class="input-group-btn">
+                <input id='addaddressToWhitelist-btn' type="button" value="Submit"
+                  class="btn btn-primary btn-lg"></input>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br />
+      <div class="title_box">
+        <div id="title">Deadline a scholarship</div>
+        <form id="f1" role="form" class="inBox">
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input id='scholarshipId-inputText-deadline' type="number" class="form-control input-lg"
+                name="candidateName" placeholder="Scholarship Id"></input>
+              <span class="input-group-btn">
+                <input id='deadline-btn' type="button" value="Submit" class="btn btn-primary btn-lg"></input>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br />
+    <div class="p1" style="width: 500px;">
+      <div class="title_box">
+        <div id="title">Search for a scholarship</div>
+        <form id="f1" role="form" class="inBox">
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input id='search-inputText' type="number" class="form-control input-lg" name="candidateName"
+                placeholder="Scholarship Id"></input>
+              <span class="input-group-btn">
+                <input id='scholarshipSearch-btn' type="button" value="Submit" class="btn btn-primary btn-lg"></input>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br />
+      <div class="p1" style="width: 500px;">
+        <div class="title_box">
+          <div id="title">Student records</div>
+          <form id="f1" role="form" class="inBox" style="height: 3cm;">
+            <input id='studentId-inputText-record' type="number" class="form-control input-lg" name="Sid"
+              placeholder="Student Id"></input><br />
+            <td>
+              <span style="float:left">
+                <input id='mark1-inputText-record' type="number" class="form-control input-lg" name="Sid"
+                  style="width: 180px;" placeholder="Mark1 (%)"></input>
+              </span>
+              <span style="float:right">
+                <div class="form-group" style="display:inline;">
+                  <div class="input-group">
+                    <input id='mark2-inputText-record' type="number" class="form-control input-lg" name="candidateName"
+                      style="width: 200px;" placeholder="Mark2 (%)"></input>
+                    <span class="input-group-btn">
+                      <input id='studentRecord-btn' type="button" value="Submit" class="btn btn-primary btn-lg"></input>
+                    </span>
+              </span>
+        </div>
+      </div>
+      </td>
+      <br />
+      <br />
+
+      </form>
+
+    </div>
+  </div>
+  <div class="center-this" id="mm-scholarship-info" style="width: 500px;" style="font-family:verdana;">></div>
+  </div>
+
+  <script src="dappAdmin.js"></script>
+</body>
+
+
+
+
+
+</html>

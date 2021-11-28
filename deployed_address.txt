@@ -1,0 +1,7 @@
+## Deployed address:
+
+Network: Ropsten Test Network
+Contract address: 0x3C042AaE348c2756abC4f77B8096a9B50E57e4cb
+Owner address: 0x6dD9c16415303EE4b089CbF3314c7B9CEF117748
+Successful student address: 0x50ed52f66fAb6eDaC6E94Dc638faB249e2F8A94b
+Unsuccessful student address: 0xd74A8341A5D59d8b6274E11c28c17EB46c0cA72C

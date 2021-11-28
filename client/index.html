@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    .button {
+      background-color: #384b39;
+      border: none;
+      color: white;
+      padding: 9px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px
+    }
+
+    .buttonSubmit {
+      background-color: #085e0c;
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px
+    }
+
+    h1 {
+      text-align: center;
+      font-family: cursive;
+      font-size: 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .title_box {
+      margin: auto;
+      border: 1px solid #0c2d74;
+      border-radius: 1ch;
+
+      flex: 1;
+    }
+
+    .title_box #title {
+      position: relative;
+      top: -0.9em;
+      margin-left: 1em;
+      display: inline;
+      background-color: white;
+      font-size: large;
+      font-family: 'Franklin Gothic Medium';
+    }
+
+    .inBox {
+      background-color: white;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .flex-container {
+      display: flex;
+      margin: auto;
+    }
+
+    .flex-child {
+      flex: 1;
+    }
+
+    .flex-child:first-child {
+      margin-right: 50px;
+      margin-left: 10px;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="computer-icon.png" sizes="16x16">
+  <img src="computer-icon.png" alt="logo">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+</head>
+
+<body>
+  <h1>Scholarships Smart Contract</h1>
+  <p>
+  <div id="mm-detected"></div>
+  </p>
+  <!-- Connect to MetaMask Wallet -->
+  <p>
+    <button id="mm-connect" class="button">Connect to MetaMask</button>
+  </p>
+  <!-- Display current address -->
+
+  <div id="mm-current-account"></div>
+  <hr>
+  <!-- Provide an input to change the contract text value -->
+
+  <div class="flex-container" style="width: 500px;">
+    <div class="title_box">
+      <div id="title">Login Form</div>
+      <form id="f1" role="form" class="inBox">
+        <span class="input-group-btn"></span>
+        <button id="admin" type="button" class="form-control input-lg"
+          style="background-color: rgb(20, 58, 161); color: white;">Admin</button>
+        </br>
+        <button id="student" type="button" class="form-control input-lg"
+          style="background-color: rgb(187, 121, 0); color: white;">Student</button>
+        </span>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    document.getElementById("admin").onclick = function () { adminPage() };
+    document.getElementById("student").onclick = function () { studentPage() };
+
+    function adminPage() {
+      window.open('http://127.0.0.1:5500/interface/admin.html', '_blank').focus();
+    }
+    function studentPage() {
+      window.open('http://127.0.0.1:5500/interface/candidate.html', '_blank').focus();
+    }
+  </script>
+  <script src="dappLogin.js"></script>
+</body>
+
+
+<!-- Had trouble and had to move the script down! -->
+
+
+
+
+</html>

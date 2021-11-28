@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id='t0'>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Candidate</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    .button {
+      background-color: #384b39;
+      border: none;
+      color: white;
+      padding: 9px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px
+    }
+
+    .buttonSubmit {
+      background-color: #128517;
+      border: none;
+      color: white;
+      padding: 5px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px
+    }
+
+    h1 {
+      text-align: center;
+      font-family: cursive;
+      font-size: 2rem;
+      color: white;
+      text-align: center;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .title_box {
+      margin: auto;
+      border: 1px solid #0c2d74;
+      border-radius: 1ch;
+
+      flex: 1;
+    }
+
+    .title_box #title {
+      position: relative;
+      top: -0.9em;
+      margin-left: 1em;
+      display: inline;
+      background-color: white;
+      font-size: large;
+      font-family: 'Franklin Gothic Medium';
+    }
+
+    .inBox {
+      background-color: white;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .flex-container {
+      display: flex;
+    }
+
+    .flex-child {
+      flex: 1;
+    }
+
+    .flex-child:first-child {
+      margin-right: 50px;
+      margin-left: 10px;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="computer-icon.png" sizes="16x16">
+  <img src="computer-icon.png" alt="logo">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+</head>
+
+<body id='candidate'>
+  <form>
+    <a href="http://127.0.0.1:5500/interface/index.html"><input type="button" class="form-control input-lg"
+        value="Go back!" style="width: 100px;" onclick="history.back()"></a>
+  </form>
+  <h1>Scholarships Smart Contract</h1>
+  <p>
+  <div id="mm-detected"></div>
+  </p>
+  <!-- Connect to MetaMask Wallet -->
+  <p>
+    <button id="mm-connect" class="button">Connect to MetaMask</button>
+  </p>
+  <!-- Display current address -->
+
+  <div id="mm-current-account"></div>
+  <hr>
+  <!-- Provide an input to change the contract text value -->
+
+  <div class="flex-container" style="width: 1500px;">
+    <div class="flex-child magenta" style="width: 500px;">
+      <div class="title_box">
+        <div id="title">Inscription</div>
+        <form id="f1" role="form" class="inBox" >
+          <input id='scholarshipId-inputText-student' type="text" class="form-control input-lg" name="Sid"
+            placeholder="Scholarship Id"></input><br />
+          <input id='studentId-inputText-student' type="text" class="form-control input-lg" name="Sid"
+            placeholder="Student Id"></input><br />
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input id='fullName-inputText' type="text" class="form-control input-lg" name="address"
+                placeholder="Full Name"></input>
+              <span class="input-group-btn">
+                <input id='inscription-btn' type="button" value="Submit" class="btn btn-primary btn-lg"
+                  style="background-color: green;"></input>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br />
+    </div>
+    <br />
+    <div class="p1" style="width: 500px;">
+      <div class="title_box">
+        <div id="title">Withdraw Money</div>
+        <form id="f1" role="form" class="inBox" >
+          <input id='scholarshipId-inputText-withdraw' type="text" class="form-control input-lg" name="Sid"
+            placeholder="Scholarship Id"></input><br />
+          <div class="form-group" style="display:inline;">
+            <div class="input-group">
+              <input id='studentId-inputText-withdraw' type="text" class="form-control input-lg" name="address"
+                placeholder="Student Id"></input>
+              <span class="input-group-btn">
+                <input id='withdraw-btn' type="button" value="Submit" class="btn btn-primary btn-lg"
+                  style="background-color: green;"></input>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="dappCandidate.js"></script>
+</body>
+
+</html>
